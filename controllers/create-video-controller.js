@@ -7,7 +7,7 @@ const btvSchema = require("../models/btvSchema");
 
 async function createVideoController(req, res) {
   try {
-    const { name, url, tags, channel, btv, model } = req.body;
+    const { name, url, tags, channel, btv, model, status, quality } = req.body;
 
     // Check if the video name already exists
     const duplicateName = await videoSchema.findOne({ name })
@@ -22,7 +22,7 @@ async function createVideoController(req, res) {
       tags,
       channel,
       btv,
-      model
+      model, status, quality 
     });
 
     // Save the video to the database

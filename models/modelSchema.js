@@ -11,7 +11,11 @@ const modelSchema = new Schema({
     videos: [{
         type: Schema.Types.ObjectId,
         ref: 'video'
-    }]
+    }],
+    superStar: {
+        type: Boolean,
+        default: false
+    }
 })
 
 module.exports = mongoose.model('model', modelSchema)

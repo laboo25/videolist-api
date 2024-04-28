@@ -25,6 +25,15 @@ const videoSchema = new Schema({
     btv: {
         type: Schema.Types.ObjectId,
         ref: 'btv' // Reference to another model named 'btv'
+    },
+    status: {
+        type: String,
+        enum: ['waiting', 'complete', 'deleted', 'wishlist', 'other'],
+        default: 'waiting'
+    },
+    quality: {
+        type: String,
+        default: '1080p'
     }
 }, { timestamps: true }); // Option to automatically generate createdAt and updatedAt fields
 
