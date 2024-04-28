@@ -9,7 +9,7 @@ const dbConnection = require("./config/dbConnection");
 app.use(cors());
 app.use(express.json());
 app.use(router)
-const port = process.env.PORT || 5000;
+const port = 5000;
 dbConnection()
 
 app.get("/", (req, res) => {
