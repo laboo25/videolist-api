@@ -7,7 +7,7 @@ const router = require("./routes");
 const dbConnection = require("./config/dbConnection");
 
 // Middleware
-app.use(cors());
+app.use(cors()); // Allow all origins during development. Configure properly for production.
 app.use(express.json());
 
 // Routes
