@@ -6,17 +6,24 @@ require('dotenv').config()
 const router = require("./routes");
 const dbConnection = require("./config/dbConnection");
 
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use(router)
-const port = 5000;
-dbConnection()
 
+// Routes
+app.use(router);
+
+// Database connection
+dbConnection();
+
+// Home route
 app.get("/", (req, res) => {
     console.log("Hello World");
     res.send('hello world')
-})
+});
 
+// Server setup
+const port = 5000;
 app.listen(port, () => {
     console.log(`Server is running on localhost http://localhost:${port}`);
-})
+});
