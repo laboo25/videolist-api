@@ -3,7 +3,7 @@ const { getAllModels, createModelController, deleteModel, updateModel } = requir
 const router = express.Router();
 
 router.post('/create-performer', createModelController)
-router.delete('/delete-performer', deleteModel)
+router.delete('/delete-performer/:id', deleteModel)
 router.put('/update-performer', updateModel)
 router.get('/get-all-performers', getAllModels)
 
