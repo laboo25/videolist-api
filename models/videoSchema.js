@@ -18,10 +18,10 @@ const videoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Channel' // Reference to another model named 'Channel'
     },
-    model: {
+    modelsname: [{
         type: Schema.Types.ObjectId,
         ref: 'model' // Reference to another model named 'model'
-    },
+    }],
     btv: {
         type: Schema.Types.ObjectId,
         ref: 'btv' // Reference to another model named 'btv'

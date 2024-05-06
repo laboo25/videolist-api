@@ -4,13 +4,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const channelSchema = new Schema({
-    channelname: {
-        type: String,
-        required: true
-    },
-    videoslist: [{
+    channelvdo: {
         type: Schema.Types.ObjectId,
-        ref: 'video'
+        ref: 'channel'
+    },
+    btvvdo: [{
+        type: Schema.Types.ObjectId,
+        ref: 'btv'
     }]
 })
 

@@ -26,8 +26,14 @@ async function createBTVController(req, res) {
 }
 
 async function getAllBtv(req, res) {
-    const btv = await btvSchema.find({}).populate('videoslist');
-    res.status(200).send(btv)
+    try {
+        const btv = await btvSchema.find({}).populate('videoslist').sort({ btvname: 1 });
+        res.status(200).send(btv);
+    } catch (error) {
+        console.error('Error fetching BTVs:', error.message);
+        res.status(500).send('Internal Server Error');
+    }
 }
+
 
 module.exports = { createBTVController, getAllBtv }
