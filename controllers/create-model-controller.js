@@ -20,7 +20,7 @@ async function createModelController(req, res){
 }
 async function deleteModel(req, res){
     try{
-        const { id } = req.body;
+        const { id } = req.params;
         const deletedModel = await modelSchema.findByIdAndDelete(id);
         if (!deletedModel) {
             return res.status(404).send('model not found');
@@ -33,7 +33,7 @@ async function deleteModel(req, res){
 }
 async function updateModel(req, res){
     try{
-        const { id, modelname, videos, superStar } = req.body;
+        const { id, modelname, videos, superStar } = req.params || req.body;
         const updatedModel = await modelSchema.findByIdAndUpdate(id, { modelname, videos, superStar }, { new: true });
         res.status(200).json({ message: 'model updated successfully', updatedModel });
     }

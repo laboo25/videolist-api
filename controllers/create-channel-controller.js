@@ -17,7 +17,7 @@ async function createChannelController(req, res) {
 }
 async function deleteChannel(req, res){
     try{
-        const { id } = req.body;
+        const { id } = req.params;
         const deletedChannel = await channelSchema.findByIdAndDelete(id);
         if (!deletedChannel) {
             return res.status(404).send('Channel not found');
@@ -30,7 +30,7 @@ async function deleteChannel(req, res){
 }
 async function updateChannel(req, res){
     try{
-        const { id, channelname } = req.body;
+        const { id, channelname } = req.params || req.body;
         const updatedChannel = await channelSchema.findByIdAndUpdate(id, { channelname }, { new: true });
         res.status(200).json({ message: 'Channel updated successfully', updatedChannel });
     }

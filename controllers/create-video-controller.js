@@ -51,7 +51,7 @@ async function createVideoController(req, res) {
 
 async function deleteVideo(req, res) {
   try {
-      const { id } = req.body;
+      const { id } = req.params || req.body;
       const deletedVideo = await videoSchema.findByIdAndDelete(id);
       if (!deletedVideo) {
           return res.status(404).send('Video not found');
@@ -65,7 +65,7 @@ async function deleteVideo(req, res) {
 }
 async function updateVideo(req, res) {
   try {
-    const { id, name, url, tags, channel, btv, modelsname, status, quality } = req.body;
+    const { id, name, url, tags, channel, btv, modelsname, status, quality } =  req.params || req.body;
     let videoToUpdate = await videoSchema.findById(id);
     if(!videoToUpdate){
       return res.status(404).send('Video not found');
